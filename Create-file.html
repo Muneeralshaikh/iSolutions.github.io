@@ -16,9 +16,9 @@
         //Use this if you want to pass in 'content-data', 'file-type', 'file-name' as part of the URL string (yourdomain.com?PDFStream=CODESTRINGHERE)
           const queryString = window.location.search;
           const urlParams = new URLSearchParams(queryString);
-          const my_contents = urlParams.get('content-data');
-          const my_filetype = urlParams.get('file-type');
-          const my_filename = urlParams.get('file-name');
+          const my_contents = ((urlParams.get('content-data') != null) ? urlParams.get('content-data') : 'this is a sample content');
+          const my_filetype = ((urlParams.get('file-type') != null) ? urlParams.get('file-type') : 'text/plain');
+          const my_filename = ((urlParams.get('file-name') != null) ? urlParams.get('file-name') : 'zzfile.txt');
          
          
          
@@ -36,15 +36,12 @@
     setTimeout(function() { URL.revokeObjectURL(dl_link.href); }, 1500);
   }
   
-  if(my_contents===null){
-    ThunkableWebviewerExtension.postMessage('Please provide a content');
-  } else if(my_filetype===null){
-    ThunkableWebviewerExtension.postMessage('Please specify a file type');
-  } else if(my_filename===null){
-    ThunkableWebviewerExtension.postMessage('Please provide a filename');
-  } else {
-    generateFileFromString(my_contents, my_filetype, my_filename);
-  }
+
+  // console.log(my_contents);
+  // console.log(my_filetype);
+  // console.log(my_filename);
+  generateFileFromString(my_contents, my_filetype, my_filename);
+  
   </script>
 </body>
 </html>

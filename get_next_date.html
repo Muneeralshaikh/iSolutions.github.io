@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://thunkable.github.io/webviewer-extension/thunkableWebviewerExtension.js" type="text/javascript"></script>
+<script 
+    src="https://thunkable.github.io/webviewer-extension/thunkableWebviewerExtension.js"
+    type="text/javascript"></script>
 </head>
 
 <script>
   ThunkableWebviewerExtension.receiveMessage(function(message) {
     const dateObj = JSON.parse(message);
-    const myDate = new Date(dateObj[0], dateObj[1] - 1, dateObj[2]);
-    myDate.setDate(myDate.getDate() + dateObj[3]);
-    ThunkableWebviewerExtension.postMessage(myDate);
+    ThunkableWebviewerExtension.postMessage(new Date(dateObj[0], dateObj[1] - 1, dateObj[2] + dateObj[3]));
 });
 </script>
 </html>

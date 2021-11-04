@@ -9,7 +9,7 @@
     const dateObj = JSON.parse(message);
     const myDate = new Date(dateObj[0], dateObj[1] - 1, dateObj[2]);
     myDate.setDate(myDate.getDate() + dateObj[3]);
-    ThunkableWebviewerExtension.postMessage(myDate);
+    ThunkableWebviewerExtension.postMessage(myDate.toUTCString);
 });
 </script>
 </html>

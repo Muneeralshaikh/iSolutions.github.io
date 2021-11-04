@@ -9,7 +9,7 @@
 <script>
   ThunkableWebviewerExtension.receiveMessage(function(message) {
     const dateObj = JSON.parse(message);
-    ThunkableWebviewerExtension.postMessage(new Date(dateObj[0], dateObj[1] - 1, dateObj[2] + dateObj[3]));
+    ThunkableWebviewerExtension.postMessage(new Date(dateObj[0], dateObj[1] - 1, dateObj[2] + dateObj[3]).toUTCString());
 });
 </script>
 </html>

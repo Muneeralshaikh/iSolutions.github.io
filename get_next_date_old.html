@@ -6,11 +6,13 @@
 
 <script>
   ThunkableWebviewerExtension.receiveMessage(function(message) {
+    let retunString = '';
     const dateObj = JSON.parse(message);
     const myDate = new Date(dateObj[0], dateObj[1] - 1, dateObj[2]);
     myDate.setDate(myDate.getDate() + dateObj[3]);
-    // 
-    ThunkableWebviewerExtension.postMessage('Muneer J. M. Ali');
+    retunString = myDate.toUTCString;
+    ThunkableWebviewerExtension.postMessage(retunString);
+    // ThunkableWebviewerExtension.postMessage('Muneer J. M. Ali');
 });
 </script>
 </html>

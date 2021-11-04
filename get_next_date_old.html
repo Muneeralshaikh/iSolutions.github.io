@@ -5,13 +5,13 @@
 </head>
 
 <script>
-  let retunString = '';
+  let returnString = '';
   ThunkableWebviewerExtension.receiveMessage(function(message) {
     const dateObj = JSON.parse(message);
     const myDate = new Date(dateObj[0], dateObj[1] - 1, dateObj[2]);
     myDate.setDate(myDate.getDate() + dateObj[3]);
-    retunString = myDate.toUTCString;
-    ThunkableWebviewerExtension.postMessage(retunString);
+    returnString = myDate.toUTCString;
+    ThunkableWebviewerExtension.postMessage('Date: ' + returnString);
     // ThunkableWebviewerExtension.postMessage('Muneer J. M. Ali');
 });
 </script>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://thunkable.github.io/webviewer-extension/thunkableWebviewerExtension.js" type="text/javascript"></script>
+<script>
+    ThunkableWebviewerExtension.receiveMessageWithReturnValue(function(message, callback) {
+    callback(encodeURIComponent(message));
+  });
+</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://thunkable.github.io/webviewer-extension/thunkableWebviewerExtension.js" type="text/javascript"></script>
+  </head>
+  <body>
+      <h3>Call AirTime API</h3>
+      <p id='showMsg'></p>
+   
+    <script type="text/javascript">
+        document.getElementById('showMsg').innerHTML = 'Checking...';
+        let options = {
+     "async": true,
+     "crossDomain": true,
+     "mode" : "no-cors",
+     "method" : "GET",
+     "headers" : {
+       "Authorization" : "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6ImUwMWJkMzNhMjM0ZDZlZTM0YTFlN2Q2Mjk2NWQwODliIiwidHlwIjoiSldUIn0.eyJuYmYiOjE2ODA4MTEwNjAsImV4cCI6MTY4MDgxNDY2MCwiaXNzIjoiaHR0cHM6Ly9pZGVudGl0eS5xYS51bWJhaS5hZnJpY2EiLCJhdWQiOlsiaHR0cHM6Ly9pZGVudGl0eS5xYS51bWJhaS5hZnJpY2EvcmVzb3VyY2VzIiwiYXBpMSIsImUiXSwiY2xpZW50X2lkIjoiY2hfOTc3ZTMzOGMtZGY5YS00MzBiLTk3OTMtYjcyNjUwMGViYzg0IiwiY2xpZW50X1ZlbmRvciI6Ijk3N2UzMzhjLWRmOWEtNDMwYi05NzkzLWI3MjY1MDBlYmM4NCIsImNsaWVudF9WZW5kb3JOYW1lIjoiQ2hlbmdldGFEaWFzcG9yYSIsInNjb3BlIjpbImFwaTEiLCJlIl19.qY-ut0t6bG5e9Merq6sJHLLqsIPXZdZ7cs00fgC8tx4zLc6lQob7soR1LwFgpGTPIzYTyZTD78J_d8ydx2L1esicfFHIWYTwU_0r1ep5kDo1sYhXxk8lCJcTSp2e6TJBMb_ynfyi3BxPzWLklej862jrOwmOufiqtjU7Ixm9RjLMFxv8Xw0z5sc5U9X862G-q-7gtsOuYqLqv_wZcR5tjtgy7Ndvbysq4UGnMRwnsezCLDa9MAjm-G4BmYjjUMkCtcwk2yGPTqxP3sKbrGK6RTQ63BOmtMhzgaU8kWPcCMS6pd9HChQNXuiPZbCZZbRUW4xwfcKqlPMn67RHCKBFeA",
+       "Access-Control-Allow-Origin" : "*",
+       "cache-control": "no-cache"
+     }
+   };
+        var res = fetch("https://api.qa.umbai.africa/airtime/quote?productName=zimbabweairtime&amount=123.45&receiverNumber=26371000111", options);
+        console.log(res);
+        // ThunkableWebviewerExtension.receiveMessage(function(message) {
+        //     const bs64Obj = JSON.parse(message);
+        //     const aTag = document.getElementById("dlFile"); //Create <a>
+        //     aTag.download = bs64Obj[0]; //File name Here
+        //     aTag.href = bs64Obj[1]; //Image Base64 Goes here
+        //     aTag.innerHTML = bs64Obj[0];
+        //     // aTag.click(); //Downloaded file
+        //     document.getElementById('showMsg').innerHTML = 'Download ' + bs64Obj[0];
+            // ThunkableWebviewerExtension.postMessage('Done');
+        // });
+    </script>
+</body>
+</html>
